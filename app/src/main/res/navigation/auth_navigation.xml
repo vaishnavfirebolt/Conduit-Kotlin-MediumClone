@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.vaishnav.conduit.ui.auth.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login_sign_up"/>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.vaishnav.conduit.ui.auth.SignUpFragment"
