@@ -1,4 +1,6 @@
 package com.vaishnav.conduit.ui.auth
 
-class SignUpFragment {
+import androidx.fragment.app.Fragment
+
+class SignUpFragment : Fragment() {
 }

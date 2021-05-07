@@ -9,4 +9,7 @@
 
     <string name="menu_feed">Feed</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="menu_auth">Login/SignUp</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
 </resources>

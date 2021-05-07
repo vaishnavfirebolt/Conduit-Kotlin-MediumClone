@@ -24,6 +24,8 @@ class GlobalFeedFragment : Fragment() {
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
         val root = binding.root
 
+        viewModel.fetchGlobalFeed()
+
         val articleFeedAdapter = ArticleFeedAdapter()
         binding.feedRecyclerView.apply {
             adapter = articleFeedAdapter
@@ -32,8 +34,6 @@ class GlobalFeedFragment : Fragment() {
         viewModel.feed.observe({lifecycle}){
             articleFeedAdapter.submitList(it)
         }
-
-        viewModel.fetchGlobalFeed()
 
         return root
     }
