@@ -10,33 +10,33 @@ import kotlin.random.Random
 
 class ConduitClientTests {
 
-    private val conduitClient = ConduitClient()
+    private val conduitClient = ConduitClient
 
     @Test
     fun `GET articles`(){
         runBlocking{
-            val articles = conduitClient.api.getArticles()
+            val articles = conduitClient.publicAPI.getArticles()
             assertNotNull(articles.body()?.articles)
         }
     }
     @Test
     fun `GET articles by author`(){
         runBlocking{
-            val articles = conduitClient.api.getArticles(author = "redhemd")
+            val articles = conduitClient.publicAPI.getArticles(author = "redhemd")
             assertNotNull(articles.body()?.articles)
         }
     }
     @Test
     fun `GET articles by favrited`(){
         runBlocking{
-            val articles = conduitClient.api.getArticles(favorited = "redhemd")
+            val articles = conduitClient.publicAPI.getArticles(favorited = "redhemd")
             assertNotNull(articles.body()?.articles)
         }
     }
     @Test
     fun `GET articles by tag`(){
         runBlocking{
-            val articles = conduitClient.api.getArticles(tag = "dragons")
+            val articles = conduitClient.publicAPI.getArticles(tag = "dragons")
             assertNotNull(articles.body()?.articles)
         }
     }
@@ -48,7 +48,7 @@ class ConduitClientTests {
                 username = "anom_user${Random.nextInt(99 , 999)}"
         )
         runBlocking {
-            val response = conduitClient.api.signupUser(SignUpRequest(userCreds))
+            val response = conduitClient.publicAPI.signupUser(SignUpRequest(userCreds))
             assertEquals(userCreds.username , response.body()?.user?.username)
         }
     }

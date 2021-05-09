@@ -15,6 +15,7 @@
         android:name="com.vaishnav.conduit.ui.auth.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up"/>
+
     <action
         android:id="@+id/goToLoginFragment"
         app:destination="@id/loginFragment"

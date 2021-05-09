@@ -4,9 +4,10 @@ import com.vaishnav.api.ConduitClient
 import com.vaishnav.api.models.entities.LoginData
 import com.vaishnav.api.models.entities.SignUpData
 import com.vaishnav.api.models.entities.User
+import com.vaishnav.api.models.entities.UserUpdateData
 import com.vaishnav.api.models.requests.LoginRequest
 import com.vaishnav.api.models.requests.SignUpRequest
-import com.vaishnav.api.models.responses.UserResponse
+import com.vaishnav.api.models.requests.UserUpdateRequest
 
 object UserRepo {
 
@@ -26,4 +27,19 @@ object UserRepo {
 
     suspend fun getUserProfile() = authAPI.getCurrentUser().body()?.user
 
+    suspend fun updateUser(
+        bio : String?,
+        username : String?,
+        image : String?,
+        email : String?,
+        password : String?
+    ): User? {
+        val response = authAPI.updateCurrentUser(UserUpdateRequest(UserUpdateData(bio, email, image, username, password)))
+        return response.body()?.user
+    }
+
+    suspend fun getCurrentUser(token: String): User? {
+        ConduitClient.authToken = token
+        return authAPI.getCurrentUser().body()?.user
+    }
 }

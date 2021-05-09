@@ -6,7 +6,6 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object ConduitClient {
@@ -17,7 +16,7 @@ object ConduitClient {
         var req = chain.request()
         authToken?.let {
             req = req.newBuilder()
-                .header("Authorization" , "Token:$it")
+                .header("Authorization" , "Token $it")
                 .build()
         }
         chain.proceed(req)
@@ -35,6 +34,7 @@ object ConduitClient {
         .client(okHttpBuilder.build())
         .build()
         .create(ConduitAPI::class.java)
+
     val authAPI: ConduitAuthApi = retrofitBuilder
         .client(okHttpBuilder.addInterceptor(authInterceptor).build())
         .build()

@@ -9,11 +9,50 @@
         android:id="@+id/nav_feed"
         android:name="com.vaishnav.conduit.ui.feed.GlobalFeedFragment"
         android:label="@string/menu_feed"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_global_feed_to_article"
+            app:destination="@id/nav_article"
+            app:popUpTo="@id/nav_feed"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim">
+            <argument
+                android:name="@string/arg_article_id" app:argType="string"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_my_feed"
+        android:name="com.vaishnav.conduit.ui.feed.MyFeedFragment"
+        android:label="@string/menu_my_feed"
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_my_feed_to_article"
+            app:destination="@id/nav_article"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/nav_my_feed"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" >
+            <argument
+                android:name="@string/arg_article_id" app:argType="string"/>
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/nav_auth"
         android:name="com.vaishnav.conduit.ui.auth.AuthFragment"
         android:label="@string/menu_auth"
         tools:layout="@layout/fragment_auth"/>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.vaishnav.conduit.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
+    <fragment
+        android:id="@+id/nav_article"
+        android:name="com.vaishnav.conduit.ui.article.ArticleFragment"
+        android:label="ArticleFragment"
+        tools:layout="@layout/fragment_article"/>
 
 </navigation>

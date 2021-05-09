@@ -20,7 +20,6 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLoginSignUpBinding.inflate(inflater, container, false)
-        binding.usernameEditText.isVisible = false
 
         return binding.root
     }
